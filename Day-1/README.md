@@ -9,7 +9,7 @@
 - Why does our project use I2C?
 
 ## 2. Concepts I Learned
-I understood that Arduino UNO contains the microcontroller "ATMEGA328p). A microcontroller is a small programmable computer tha reads inputs from sensors, process infos and controls output devices. 
+I understood that Arduino UNO uses the microcontroller "ATMEGA328p). A microcontroller is a small programmable computer tha reads inputs from sensors, process infos and controls output devices. 
 Some of the sensors that I came to know were:
 - Ultrasonic sensors (HC-SR04)
 - Temperature sensor
@@ -23,7 +23,7 @@ Some of the sensors that I came to know were:
 
   These roads have different communication protocols some them that I learnt were:
   1) UART (Universal unsynchronous reciever transmitter)
-  2) SPI (Serial peripheral interface
+  2) SPI (Serial peripheral interface)
   3) I2C (Inter integrated circuit)
  
   In simple words, communication protocols are basically predefined rules for exchanging data.
@@ -38,16 +38,21 @@ It is another communication protocol that follows the master and slave concept.
 Master refers to the one who asks for informations
 Slave refers to the one who brings the information based on the request made by the Master
 
-2 SPIs would connect based on:
+1 SPI's master would connect to any number of slaves based on:
 MOSI -> MOSI [master out slave in]
 MISO -> MISO [Master in slave out]
 SCLK -> SCLK [Clock signal]
 CS -> CS [Chip select]
 
 3) I2C
-This is a communication protocol that uses parallel connection between a master and the slave. Additionally it has the communication lines:
+This is a communication protocol that follows a serial connection between a master and the slave. Additionally it has the communication lines:
 - SDA (Serial data)
 - SCL (Serial clock)
+
+Reasons why the project uses I2C:
+- It only has 2 communication wires - SDA and SCL are sufficient for communication
+- Multiple sensor can share the same communication bus
+- Arduino is compatible with I2C making it convenient to be used with IMU
 
 ## 5. Doubts and Challenges
 As I was new to the whole topic, I faced some difficult in understanding how certain communication lines interact but today as I am starting new, I decided to learn it like a concept than to overlearn it.
